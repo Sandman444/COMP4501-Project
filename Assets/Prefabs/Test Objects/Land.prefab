@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1504244453751999}
   - component: {fileID: 1504244453751996}
   - component: {fileID: 1504244453751937}
+  - component: {fileID: 2907740298963333573}
   m_Layer: 0
   m_Name: Land
   m_TagString: Untagged
@@ -108,3 +109,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2907740298963333573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504244453751994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a7312727aeb4b6c82acc457aeef4ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {fileID: 2100000, guid: 05ef7d4cbf0e840288061cbe061a5637, type: 2}
+  unitSelector: {fileID: 100002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}

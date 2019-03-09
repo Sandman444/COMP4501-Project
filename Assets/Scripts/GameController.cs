@@ -22,10 +22,15 @@ public class GameController : MonoBehaviour
     //TEMP: Need better way to load prefabs
     public Rigidbody landVehicle;
     public Rigidbody flyingVehicle;
+    //Load actual unit models below
+
 
     // Start is called before the first frame update
     void Start()
     {
+        //TEMP: Remove Testing Cube
+        this.transform.Find("Testing Cube").GetComponent<Renderer>().enabled = false;
+
         //Setup Unit Storage GameObjects
         units = new GameObject("Units");
         playerUnits = new GameObject("Player Units");
