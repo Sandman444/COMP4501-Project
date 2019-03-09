@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public float scrollSpeed = 1.0f;
+    public Vector3 cameraAngle = new Vector3(45, 20, 0);
 
     // Update is called once per frame
     void Update()

@@ -27,10 +27,10 @@ public class GameController : MonoBehaviour
     void Start()
     {
         //Setup Unit Storage GameObjects
-        units = new GameObject();
-        playerUnits = new GameObject();
+        units = new GameObject("Units");
+        playerUnits = new GameObject("Player Units");
         playerUnits.transform.SetParent(units.transform);
-        computerUnits = new GameObject();
+        computerUnits = new GameObject("Computer Units");
         computerUnits.transform.SetParent(units.transform);
 
         //Create Some initial units
