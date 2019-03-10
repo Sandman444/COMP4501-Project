@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    //Testing Cube
+    public Rigidbody testCube;
+
     //Unit type enums
     public enum UnitType {Land, Flying};
     public enum User {Player, Computer};
@@ -20,8 +23,9 @@ public class GameController : MonoBehaviour
     public Material computerLand;
 
     //TEMP: Need better way to load prefabs
-    public Rigidbody landVehicle;
-    public Rigidbody flyingVehicle;
+    public Rigidbody landUnit;
+    public Rigidbody flyingUnit;
+
     //Load actual unit models below
 
 
@@ -29,7 +33,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         //TEMP: Remove Testing Cube
-        this.transform.Find("Testing Cube").GetComponent<Renderer>().enabled = false;
+        //this.transform.Find("Testing Cube").GetComponent<Renderer>().enabled = false;
 
         //Setup Unit Storage GameObjects
         units = new GameObject("Units");
@@ -48,7 +52,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            testCube.GetComponent<UnitHealth>().TakeDamage(10);
+        }
     }
 
     void CreateUnit(UnitType type, User user, Vector3 position)
@@ -58,8 +65,9 @@ public class GameController : MonoBehaviour
         {
             case UnitType.Flying:
                 //NOTE: Convert this section to generic method later
-                Rigidbody flyingObj = (Rigidbody)Instantiate(flyingVehicle, position, flyingVehicle.transform.rotation);
+                Rigidbody flyingObj = (Rigidbody)Instantiate(flyingUnit, position, flyingUnit.transform.rotation);
                 flyingObj.transform.SetParent(units.transform);
+
                 if (user == User.Player)
                 {
                     //playerUnits.Add(flyingObj);
@@ -75,7 +83,7 @@ public class GameController : MonoBehaviour
                 //End Note
                 return;
             case UnitType.Land:
-                Rigidbody landObj = (Rigidbody)Instantiate(landVehicle, position, Quaternion.identity);
+                Rigidbody landObj = (Rigidbody)Instantiate(landUnit, position, Quaternion.identity);
                 landObj.transform.SetParent(units.transform);
                 if (user == User.Player)
                 {

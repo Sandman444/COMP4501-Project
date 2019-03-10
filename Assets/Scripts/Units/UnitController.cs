@@ -9,8 +9,10 @@ public class UnitController : MonoBehaviour
     private Material normalColor;
 
     public GameObject unitSelector;
-    private bool selected;
-    private bool playerUnit; 
+
+    //Variables
+    public bool playerUnit;
+    public bool selected;
 
     // Start is called before the first frame update
     void Start()

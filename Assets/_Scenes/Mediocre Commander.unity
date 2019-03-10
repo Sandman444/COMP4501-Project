@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 390214492}
   - component: {fileID: 390214491}
   - component: {fileID: 390214490}
+  - component: {fileID: 390214496}
   m_Layer: 9
   m_Name: Testing Cube
   m_TagString: Untagged
@@ -226,7 +227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a7312727aeb4b6c82acc457aeef4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  highlightColor: {fileID: 2100000, guid: 05ef7d4cbf0e840288061cbe061a5637, type: 2}
+  unitSelector: {fileID: 100002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
+  playerUnit: 0
+  selected: 0
 --- !u!65 &390214491
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -257,7 +261,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e66a4f69053714009a35535b0f40350a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -299,6 +303,21 @@ Transform:
   m_Father: {fileID: 2089962131}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &390214496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390214489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741bfe630764648578d378db7afd024e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 25
+  currentHealth: 25
+  healthBar: {fileID: 0}
 --- !u!1 &1172537784
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172537784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.02}
   m_LocalScale: {x: 1000, y: 1, z: 1000}
   m_Children: []
   m_Father: {fileID: 0}
@@ -551,13 +570,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f4a665849444f9ba56e2648682e115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testCube: {fileID: 0}
   playerFlying: {fileID: 2100000, guid: b8bdd46cd046e4115bdf42cc9dacb636, type: 2}
   playerLand: {fileID: 2100000, guid: 0750eed83f7ea4670a1091d4ba086b3a, type: 2}
   computerFlying: {fileID: 2100000, guid: feac5d994cf3c466e9364af2866f9a1c, type: 2}
   computerLand: {fileID: 2100000, guid: f7a67d49e59544f21abf45eace0d48bc, type: 2}
-  landVehicle: {fileID: 1504244453751937, guid: 0255400093b7143da82b01ab143f4db9,
-    type: 3}
-  flyingVehicle: {fileID: 4769695981518483782, guid: e36df029dc76a49f0bdaa0e7c6235905,
+  landUnit: {fileID: 1504244453751937, guid: 0255400093b7143da82b01ab143f4db9, type: 3}
+  flyingUnit: {fileID: 4769695981518483782, guid: e36df029dc76a49f0bdaa0e7c6235905,
     type: 3}
 --- !u!4 &2089962131
 Transform:
