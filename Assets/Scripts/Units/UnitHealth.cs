@@ -8,6 +8,7 @@ public class UnitHealth : MonoBehaviour
     //Public Variables
     public int startingHealth = 25;
     public int currentHealth = 25;
+    public RectTransform healthBar;
 
     bool damaged;
 
@@ -28,6 +29,7 @@ public class UnitHealth : MonoBehaviour
     {
         damaged = true;
         currentHealth -= amount;
+        healthBar.sizeDelta = new Vector2(100 * ((float)currentHealth/startingHealth), healthBar.sizeDelta.y);
 
         //kill if health is zero
         if (currentHealth <= 0)
