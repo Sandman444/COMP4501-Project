@@ -39,7 +39,7 @@ public class UnitController : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0)&& isDragging==true)
         {
             UnSelectUnits();
             foreach(var selectableObject in FindObjectsOfType<BoxCollider>())

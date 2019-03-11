@@ -28,9 +28,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //TEMP: Remove Testing Cube
-        this.transform.Find("Testing Cube").GetComponent<Renderer>().enabled = false;
-
+        
         //Setup Unit Storage GameObjects
         units = new GameObject("Units");
         playerUnits = new GameObject("Player Units");

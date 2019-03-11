@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 1504244453751996}
   - component: {fileID: 1504244453751937}
   - component: {fileID: 2907740298963333573}
-  - component: {fileID: 777809266588548230}
   - component: {fileID: 5989881965477820905}
+  - component: {fileID: 5193743589153430065}
   m_Layer: 0
   m_Name: Land
   m_TagString: Untagged
@@ -124,28 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a7312727aeb4b6c82acc457aeef4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!195 &777809266588548230
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504244453751994}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.00001
-  m_Speed: 0
-  m_Acceleration: 0
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.00001
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &5989881965477820905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +136,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0acb83638cf8aeb45b470392f16e1770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!195 &5193743589153430065
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504244453751994}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &9182109185075809498
 GameObject:
   m_ObjectHideFlags: 0
