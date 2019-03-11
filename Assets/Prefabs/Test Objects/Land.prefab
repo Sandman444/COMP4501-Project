@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1504244453751937}
   - component: {fileID: 2907740298963333573}
   - component: {fileID: 947974278180959204}
+  - component: {fileID: 6454416733493949152}
   m_Layer: 0
   m_Name: Land
   m_TagString: Untagged
@@ -142,6 +143,20 @@ MonoBehaviour:
   startingHealth: 25
   currentHealth: 25
   healthBar: {fileID: 9046040303685584635}
+--- !u!114 &6454416733493949152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504244453751994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c00725a76cb649f5980eb3388255f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 0
+  damage: 10
 --- !u!1001 &3129121599377653428
 PrefabInstance:
   m_ObjectHideFlags: 0

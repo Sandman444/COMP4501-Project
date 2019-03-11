@@ -37,6 +37,7 @@ public class GameController : MonoBehaviour
 
         //Setup Unit Storage GameObjects
         units = new GameObject("Units");
+        units.transform.SetParent(this.transform);
         playerUnits = new GameObject("Player Units");
         playerUnits.transform.SetParent(units.transform);
         computerUnits = new GameObject("Computer Units");
@@ -54,7 +55,7 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.K))
         {
-            testCube.GetComponent<UnitHealth>().TakeDamage(10);
+            testCube.GetComponent<Health>().TakeDamage(10);
         }
 
         //Attack computers units on right click
@@ -66,9 +67,20 @@ public class GameController : MonoBehaviour
             if (Physics.Raycast (ray, out hit, 100.0f))
             {
                 clickedObject = hit.collider.gameObject;
+                if (clickedObject.tag == "Computer")
+                {
+                    Debug.Log("Unit Attacked: " + clickedObject.tag + " " + clickedObject.name);
+                    foreach (Transform child in playerUnits.transform)
+                    {
+                        if(child.GetComponent<UnitController>().selected == true && child.GetComponent<Attack>() != null)
+                        {
+                            Debug.Log("Unit Attacking: " + child.tag + " " +child.name);
+                            child.GetComponent<Attack>().AttackUnit(clickedObject);
+                        }
+                    }
+                }
             }
         }
-        //if (clickedObject.ta)
     }
 
     void CreateUnit(UnitType type, User user, Vector3 position)

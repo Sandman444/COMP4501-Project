@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackBehaviour : MonoBehaviour
+public class Attack : MonoBehaviour
 {
     public int range;
+    public int damage;
 
     bool attacking;
 
@@ -20,7 +21,16 @@ public class AttackBehaviour : MonoBehaviour
         
     }
 
-    bool testHit()
+    public void AttackUnit(GameObject enemy)
+    {
+        Debug.Log("Attacking");
+        if (enemy.GetComponent<Health>() != null && TestHit() == true)
+        {
+            enemy.GetComponent<Health>().TakeDamage(damage);
+        }
+
+    }
+    bool TestHit()
     {
         return true;
     }
