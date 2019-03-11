@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UnitHealth : MonoBehaviour
+public class Health : MonoBehaviour
 {
     //Public Variables
     public int startingHealth = 25;
@@ -15,7 +15,6 @@ public class UnitHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         currentHealth = startingHealth;
     }
 

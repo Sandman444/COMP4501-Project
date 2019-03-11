@@ -14,9 +14,16 @@ public class UnitController : MonoBehaviour
     public bool playerUnit;
     public bool selected;
 
+    GameController game;
+
     // Start is called before the first frame update
     void Start()
     {
+        game = GameObject.Find("Game").GetComponent<GameController>();
+        if (game == null)
+        {
+            Debug.Log("Error: Gamecontroller not attached to a unit");
+        }
         selected = false;
         if(transform.parent.name == "Player Units")
         {
@@ -41,7 +48,6 @@ public class UnitController : MonoBehaviour
         }
 
         //deselect other objects
-
     }
 
     private void OnMouseDown()

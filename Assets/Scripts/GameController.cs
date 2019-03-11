@@ -37,6 +37,7 @@ public class GameController : MonoBehaviour
 
         //Setup Unit Storage GameObjects
         units = new GameObject("Units");
+        units.transform.SetParent(this.transform);
         playerUnits = new GameObject("Player Units");
         playerUnits.transform.SetParent(units.transform);
         computerUnits = new GameObject("Computer Units");
@@ -54,53 +55,68 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.K))
         {
-            testCube.GetComponent<UnitHealth>().TakeDamage(10);
+            testCube.GetComponent<Health>().TakeDamage(10);
+        }
+
+        //Attack computers units on right click
+        GameObject clickedObject;
+        if (Input.GetMouseButtonDown(1))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast (ray, out hit, 100.0f))
+            {
+                clickedObject = hit.collider.gameObject;
+                if (clickedObject.tag == "Computer")
+                {
+                    Debug.Log("Unit Attacked: " + clickedObject.tag + " " + clickedObject.name);
+                    foreach (Transform child in playerUnits.transform)
+                    {
+                        if(child.GetComponent<UnitController>().selected == true && child.GetComponent<Attack>() != null)
+                        {
+                            Debug.Log("Unit Attacking: " + child.tag + " " +child.name);
+                            child.GetComponent<Attack>().AttackUnit(clickedObject);
+                        }
+                    }
+                }
+            }
         }
     }
 
     void CreateUnit(UnitType type, User user, Vector3 position)
     {
         //need to require that the spawned object is a rigidbody
-        switch (type)
-        {
-            case UnitType.Flying:
-                //NOTE: Convert this section to generic method later
-                Rigidbody flyingObj = (Rigidbody)Instantiate(flyingUnit, position, flyingUnit.transform.rotation);
-                flyingObj.transform.SetParent(units.transform);
+        Rigidbody unit;
 
-                if (user == User.Player)
-                {
-                    //playerUnits.Add(flyingObj);
-                    flyingObj.transform.SetParent(playerUnits.transform);
-                    flyingObj.GetComponent<Renderer>().material = playerFlying;
-                }
-                else if (user == User.Computer)
-                {
-                    //computerUnits.Add(flyingObj);
-                    flyingObj.transform.SetParent(computerUnits.transform);
-                    flyingObj.GetComponent<Renderer>().material = computerFlying;
-                }
-                //End Note
-                return;
-            case UnitType.Land:
-                Rigidbody landObj = (Rigidbody)Instantiate(landUnit, position, Quaternion.identity);
-                landObj.transform.SetParent(units.transform);
-                if (user == User.Player)
-                {
-                    //playerUnits.Add(landObj);
-                    landObj.transform.SetParent(playerUnits.transform);
-                    landObj.GetComponent<Renderer>().material = playerFlying;
-                }
-                else if (user == User.Computer)
-                {
-                    //computerUnits.Add(landObj);
-                    landObj.transform.SetParent(computerUnits.transform);
-                    landObj.GetComponent<Renderer>().material = computerFlying;
-                }
-                return;
-            default:
-                Debug.Log("Error creating a unit");
-                return;
+        if(type == UnitType.Flying)
+        {
+            unit = (Rigidbody)Instantiate(flyingUnit, position, flyingUnit.transform.rotation);
+            unit.transform.SetParent(units.transform);
+        }
+        else if (type == UnitType.Land)
+        {
+            unit = (Rigidbody)Instantiate(landUnit, position, Quaternion.identity);
+            unit.transform.SetParent(units.transform);
+        }
+        else
+        {
+            unit = (Rigidbody)Instantiate(landUnit, new Vector3(0, 0, 0), Quaternion.identity);
+            Debug.Log("Error creating a unit");
+        }
+
+        //set user tag
+        if (user == User.Player)
+        {
+            unit.transform.tag = "Player";
+            unit.transform.SetParent(playerUnits.transform);
+            unit.GetComponent<Renderer>().material = playerFlying;
+        }
+        else if (user == User.Computer)
+        {
+            unit.transform.tag = "Computer";
+            unit.transform.SetParent(computerUnits.transform);
+            unit.GetComponent<Renderer>().material = computerFlying;
         }
     }
+
 }
