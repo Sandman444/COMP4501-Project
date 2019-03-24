@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class UnitController : MonoBehaviour
 {
-    //TEMP: Remove when unit selector projector works
-    private Material normalColor;
-    public Material highlightColor;
-
     public GameObject unitSelector;
 
     //Variables
@@ -16,9 +12,11 @@ public class UnitController : MonoBehaviour
 
     GameController game;
     List<ActionController> selectedUnits = new List<ActionController>();
-    RaycastHit hit;
+    public Flock flock;
+    RaycastHit hit; 
     bool isDragging = false;
     Vector3 mousePosition;
+
 
     private void OnGUI()
     {
@@ -46,14 +44,12 @@ public class UnitController : MonoBehaviour
         {
             playerUnit = false;
         }
-
-        //TEMP
-        normalColor = this.GetComponent<Renderer>().material;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Handle Single Unit Selection
         if (Input.GetMouseButtonDown(0))
         {
             mousePosition = Input.mousePosition;
@@ -64,6 +60,7 @@ public class UnitController : MonoBehaviour
                 Debug.Log(hit.transform.tag);
                 if (hit.transform.CompareTag("Player"))
                 {
+                    flock.AddUnit(hit.transform.gameObject);
                     SelectUnit(hit.transform.gameObject.GetComponent<ActionController>(), Input.GetKey(KeyCode.LeftShift));
                 }
                 else
@@ -72,7 +69,7 @@ public class UnitController : MonoBehaviour
                 }
             }
         }
-
+        //Handle Multi-Unit Selection
         if (Input.GetMouseButtonUp(0) && isDragging == true)
         {
             UnSelectUnits();
@@ -84,9 +81,12 @@ public class UnitController : MonoBehaviour
                 }
             }
 
+
+
             isDragging = false;
         }
 
+        //Move Selected Units
         if (Input.GetMouseButtonDown(1) && selectedUnits.Count > 0)
         {
             var camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -106,7 +106,6 @@ public class UnitController : MonoBehaviour
 
     }
 
-   
     private void SelectUnit(ActionController unit, bool isMultiSelect = false)
     {
         if (!isMultiSelect)
@@ -115,14 +114,12 @@ public class UnitController : MonoBehaviour
         }
         selectedUnits.Add(unit);
         selected = true;
-
     }
 
     private void UnSelectUnits()
     {
         for (int i = 0; i < selectedUnits.Count; i++)
         {
-
             selectedUnits[i].unSelect();
         }
         selectedUnits.Clear();

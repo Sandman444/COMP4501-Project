@@ -6,6 +6,7 @@ public class ActionController : MonoBehaviour
 {
 
     private NavMeshAgent navAgent;
+    private Renderer rend;
     bool selected;
     public Material highlightColor;
     private Material normalColor;
@@ -22,5 +23,4 @@ public class ActionController : MonoBehaviour
     {
         selected = false;
     }
-   
 }

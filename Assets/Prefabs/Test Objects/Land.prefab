@@ -126,7 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a7312727aeb4b6c82acc457aeef4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightColor: {fileID: 0}
+  normalColor: {fileID: 0}
+  highlightColor: {fileID: 2100000, guid: 09e29e92409a302468fd13c2b78f405a, type: 2}
   unitSelector: {fileID: 100002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
   playerUnit: 0
   selected: 0
