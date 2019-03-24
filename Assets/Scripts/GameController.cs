@@ -53,9 +53,9 @@ public class GameController : MonoBehaviour
         CreateUnit(UnitType.Land, User.Player, new Vector3(6, 1, 0));
         CreateUnit(UnitType.Land, User.Player, new Vector3(7, 1, 0));
 
-        CreateUnit(UnitType.Land, User.Computer, new Vector3(0, 1, 7));
-        CreateUnit(UnitType.Flying, User.Player, new Vector3(0, 7.5f, 0));
-        CreateUnit(UnitType.Flying, User.Computer, new Vector3(0, 7.5f, 7));
+        //CreateUnit(UnitType.Land, User.Computer, new Vector3(0, 1, 7));
+        //CreateUnit(UnitType.Flying, User.Player, new Vector3(0, 7.5f, 0));
+        //CreateUnit(UnitType.Flying, User.Computer, new Vector3(0, 7.5f, 7));
     }
 
     // Update is called once per frame
