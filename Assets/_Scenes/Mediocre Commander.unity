@@ -626,6 +626,8 @@ MonoBehaviour:
   computerLand: {fileID: 2100000, guid: f7a67d49e59544f21abf45eace0d48bc, type: 2}
   landUnit: {fileID: 1751349612044047995, guid: 34ee266f13c6c294496048fcef8b9a17,
     type: 3}
+  commanderUnit: {fileID: 6837827755807158628, guid: ce47b6a266d55f74d877b271d45b8aa4,
+    type: 3}
   flyingUnit: {fileID: 4659081051459450229, guid: c856a9f5a8ab83b40b9b04d06e859e15,
     type: 3}
 --- !u!4 &2089962131
