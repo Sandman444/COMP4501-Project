@@ -54,6 +54,7 @@ public class UnitController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		
         if (Input.GetMouseButtonDown(0))
         {
             mousePosition = Input.mousePosition;
@@ -98,6 +99,7 @@ public class UnitController : MonoBehaviour
                     foreach (var selectableObj in selectedUnits)
                     {
                         selectableObj.MoveUnit(hit.point);
+						selectableObj.GetComponentInChildren<Animator>().SetTrigger("move");
                     }
                 }
             }
