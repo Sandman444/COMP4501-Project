@@ -624,8 +624,9 @@ MonoBehaviour:
   playerLand: {fileID: 2100000, guid: 0750eed83f7ea4670a1091d4ba086b3a, type: 2}
   computerFlying: {fileID: 2100000, guid: feac5d994cf3c466e9364af2866f9a1c, type: 2}
   computerLand: {fileID: 2100000, guid: f7a67d49e59544f21abf45eace0d48bc, type: 2}
-  landUnit: {fileID: 1504244453751937, guid: 0255400093b7143da82b01ab143f4db9, type: 3}
-  flyingUnit: {fileID: 4769695981518483782, guid: e36df029dc76a49f0bdaa0e7c6235905,
+  landUnit: {fileID: 1751349612044047995, guid: 34ee266f13c6c294496048fcef8b9a17,
+    type: 3}
+  flyingUnit: {fileID: 4659081051459450229, guid: c856a9f5a8ab83b40b9b04d06e859e15,
     type: 3}
 --- !u!4 &2089962131
 Transform:

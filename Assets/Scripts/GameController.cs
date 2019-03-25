@@ -23,8 +23,8 @@ public class GameController : MonoBehaviour
     public Material computerLand;
 
     //TEMP: Need better way to load prefabs
-    public Rigidbody landUnit;
-    public Rigidbody flyingUnit;
+    public GameObject landUnit;
+    public GameObject flyingUnit;
 
     //Load actual unit models below
 
@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour
         computerUnits.transform.SetParent(units.transform);
 
         //Create Some initial units
-        CreateUnit(UnitType.Land, User.Player, new Vector3(0, 1, 0));
+      CreateUnit(UnitType.Land, User.Player, new Vector3(0, 1, 0));
         CreateUnit(UnitType.Land, User.Player, new Vector3(1, 1, 0));
         CreateUnit(UnitType.Land, User.Player, new Vector3(2, 1, 0));
         CreateUnit(UnitType.Land, User.Player, new Vector3(3, 1, 0));
@@ -94,21 +94,21 @@ public class GameController : MonoBehaviour
     void CreateUnit(UnitType type, User user, Vector3 position)
     {
         //need to require that the spawned object is a rigidbody
-        Rigidbody unit;
+        GameObject unit;
 
         if(type == UnitType.Flying)
         {
-            unit = (Rigidbody)Instantiate(flyingUnit, position, flyingUnit.transform.rotation);
+            unit = Instantiate(flyingUnit, position, flyingUnit.transform.rotation) as GameObject;
             unit.transform.SetParent(units.transform);
         }
         else if (type == UnitType.Land)
         {
-            unit = (Rigidbody)Instantiate(landUnit, position, Quaternion.identity);
+            unit = Instantiate(landUnit, position, Quaternion.identity) as GameObject;
             unit.transform.SetParent(units.transform);
         }
         else
         {
-            unit = (Rigidbody)Instantiate(landUnit, new Vector3(0, 0, 0), Quaternion.identity);
+            unit = Instantiate(landUnit, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
             Debug.Log("Error creating a unit");
         }
 
@@ -117,13 +117,13 @@ public class GameController : MonoBehaviour
         {
             unit.transform.tag = "Player";
             unit.transform.SetParent(playerUnits.transform);
-            unit.GetComponent<Renderer>().material = playerFlying;
+			unit.GetComponentInChildren<Renderer>().material = playerFlying;
         }
         else if (user == User.Computer)
         {
             unit.transform.tag = "Computer";
             unit.transform.SetParent(computerUnits.transform);
-            unit.GetComponent<Renderer>().material = computerFlying;
+			unit.GetComponentInChildren<Renderer>().material = computerFlying;
         }
     }
 
