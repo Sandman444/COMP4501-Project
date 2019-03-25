@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 54f4a665849444f9ba56e2648682e115
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - testCube: {instanceID: 0}
+  - playerFlying: {instanceID: 0}
+  - playerLand: {instanceID: 0}
+  - computerFlying: {instanceID: 0}
+  - computerLand: {instanceID: 0}
+  - landUnit: {fileID: 1751349612044047995, guid: 34ee266f13c6c294496048fcef8b9a17,
+      type: 3}
+  - commander: {fileID: 6837827755807158628, guid: ce47b6a266d55f74d877b271d45b8aa4,
+      type: 3}
+  - flyingUnit: {fileID: 4659081051459450229, guid: c856a9f5a8ab83b40b9b04d06e859e15,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
