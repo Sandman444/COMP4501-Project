@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     public Rigidbody testCube;
 
     //Unit type enums
-    public enum UnitType {Land, Flying};
+    public enum UnitType {Land, Flying, Commander};
     public enum User {Player, Computer};
 
     private GameObject units;
@@ -23,11 +23,9 @@ public class GameController : MonoBehaviour
     public Material computerLand;
 
     //TEMP: Need better way to load prefabs
-    public Rigidbody landUnit;
-    public Rigidbody flyingUnit;
-
-    //Load actual unit models below
-
+    public GameObject landUnit;
+	public GameObject commanderUnit;
+	public GameObject flyingUnit;
 
     // Start is called before the first frame update
     void Start()
@@ -53,10 +51,16 @@ public class GameController : MonoBehaviour
         CreateUnit(UnitType.Land, User.Player, new Vector3(6, 1, 0));
         CreateUnit(UnitType.Land, User.Player, new Vector3(7, 1, 0));
 
-        CreateUnit(UnitType.Land, User.Computer, new Vector3(0, 1, 7));
-        CreateUnit(UnitType.Flying, User.Player, new Vector3(0, 7.5f, 0));
-        CreateUnit(UnitType.Flying, User.Computer, new Vector3(0, 7.5f, 7));
-    }
+        //CreateUnit(UnitType.Land, User.Computer, new Vector3(0, 1, 7));
+        CreateUnit(UnitType.Flying, User.Player, new Vector3(0, 7.5f, 7));
+        CreateUnit(UnitType.Flying, User.Player, new Vector3(4, 7.5f, 7));
+        CreateUnit(UnitType.Flying, User.Player, new Vector3(8, 7.5f, 7));
+        CreateUnit(UnitType.Flying, User.Player, new Vector3(-4, 7.5f, 7));
+        CreateUnit(UnitType.Flying, User.Player, new Vector3(-8, 7.5f, 7));
+        //CreateUnit(UnitType.Flying, User.Computer, new Vector3(0, 7.5f, 7));
+
+        CreateUnit(UnitType.Commander, User.Player, new Vector3(10, 1, 0));
+	}
 
     // Update is called once per frame
     void Update()
@@ -94,21 +98,26 @@ public class GameController : MonoBehaviour
     void CreateUnit(UnitType type, User user, Vector3 position)
     {
         //need to require that the spawned object is a rigidbody
-        Rigidbody unit;
+        GameObject unit;
 
         if(type == UnitType.Flying)
         {
-            unit = (Rigidbody)Instantiate(flyingUnit, position, flyingUnit.transform.rotation);
+            unit = Instantiate(flyingUnit, position, flyingUnit.transform.rotation) as GameObject;
             unit.transform.SetParent(units.transform);
         }
         else if (type == UnitType.Land)
         {
-            unit = (Rigidbody)Instantiate(landUnit, position, Quaternion.identity);
+            unit = Instantiate(landUnit, position, Quaternion.identity) as GameObject;
             unit.transform.SetParent(units.transform);
         }
+		else if (type == UnitType.Commander)
+		{
+			unit = Instantiate(commanderUnit, position, Quaternion.identity) as GameObject;
+			unit.transform.SetParent(units.transform);
+		}
         else
         {
-            unit = (Rigidbody)Instantiate(landUnit, new Vector3(0, 0, 0), Quaternion.identity);
+            unit = Instantiate(landUnit, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
             Debug.Log("Error creating a unit");
         }
 
@@ -117,13 +126,13 @@ public class GameController : MonoBehaviour
         {
             unit.transform.tag = "Player";
             unit.transform.SetParent(playerUnits.transform);
-            unit.GetComponent<Renderer>().material = playerFlying;
+			unit.GetComponentInChildren<Renderer>().material = playerFlying;
         }
         else if (user == User.Computer)
         {
             unit.transform.tag = "Computer";
             unit.transform.SetParent(computerUnits.transform);
-            unit.GetComponent<Renderer>().material = computerFlying;
+			unit.GetComponentInChildren<Renderer>().material = computerFlying;
         }
     }
 

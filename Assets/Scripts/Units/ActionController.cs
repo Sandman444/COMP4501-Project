@@ -17,6 +17,7 @@ public class ActionController : MonoBehaviour
     public void MoveUnit(Vector3 destination)
     {
         navAgent.destination = destination;
+
     }
     public void unSelect()
     {
