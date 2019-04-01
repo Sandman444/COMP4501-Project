@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         //TEMP: Remove Testing Cube
-        //this.transform.Find("Testing Cube").GetComponent<Renderer>().enabled = false;
+        this.transform.Find("Testing Cube").GetComponent<Renderer>().enabled = false;
 
         //Setup Unit Storage GameObjects
         units = new GameObject("Units");
@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour
         computerUnits.transform.SetParent(units.transform);
 
         //Create Some initial units
-        CreateUnit(UnitType.Land, User.Player, new Vector3(0, 1, 0));
+       /* CreateUnit(UnitType.Land, User.Player, new Vector3(0, 1, 0));
         CreateUnit(UnitType.Land, User.Player, new Vector3(1, 1, 0));
         CreateUnit(UnitType.Land, User.Player, new Vector3(2, 1, 0));
         CreateUnit(UnitType.Land, User.Player, new Vector3(3, 1, 0));
@@ -57,9 +57,12 @@ public class GameController : MonoBehaviour
         CreateUnit(UnitType.Flying, User.Player, new Vector3(8, 7.5f, 7));
         CreateUnit(UnitType.Flying, User.Player, new Vector3(-4, 7.5f, 7));
         CreateUnit(UnitType.Flying, User.Player, new Vector3(-8, 7.5f, 7));
-        //CreateUnit(UnitType.Flying, User.Computer, new Vector3(0, 7.5f, 7));
+        //CreateUnit(UnitType.Flying, User.Computer, new Vector3(0, 7.5f, 7));*/
 
         CreateUnit(UnitType.Commander, User.Player, new Vector3(10, 1, 0));
+
+        //Create Enemy AI test unit
+        CreateUnit(UnitType.Land, User.Computer, new Vector3(0, 1, 0));
 	}
 
     // Update is called once per frame
@@ -133,6 +136,7 @@ public class GameController : MonoBehaviour
             unit.transform.tag = "Computer";
             unit.transform.SetParent(computerUnits.transform);
 			unit.GetComponentInChildren<Renderer>().material = computerFlying;
+            unit.AddComponent<AIBehaviour>
         }
     }
 
