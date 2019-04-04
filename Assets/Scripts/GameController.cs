@@ -8,8 +8,8 @@ public class GameController : MonoBehaviour
     public Rigidbody testCube;
 
     //Unit type enums
-    public enum UnitType {Land, Flying, Commander};
-    public enum User {Player, Computer};
+    public enum UnitType {LAV, ground_fac, Commander, bomber};
+    public enum User {Player, Computer};  //0 is player, 1 is comp
 
     private GameObject units;
     //TEMP: Check that objects are being made right (ArrayList more efficient)
@@ -22,16 +22,20 @@ public class GameController : MonoBehaviour
     public Material computerFlying;
     public Material computerLand;
 
+	public GameObject player_object;
+	public GameObject computer_object;
+
     //TEMP: Need better way to load prefabs
-    public GameObject landUnit;
-	public GameObject commanderUnit;
-	public GameObject flyingUnit;
+    public GameObject ground_LAV;
+	public GameObject ground_commander;
+	public GameObject air_bomber;
+	public GameObject ground_spawner;
 
     // Start is called before the first frame update
     void Start()
     {
-        //TEMP: Remove Testing Cube
-        //this.transform.Find("Testing Cube").GetComponent<Renderer>().enabled = false;
+		//TEMP: Remove Testing Cube
+		//this.transform.Find("Testing Cube").GetComponent<Renderer>().enabled = false;
 
         //Setup Unit Storage GameObjects
         units = new GameObject("Units");
@@ -42,20 +46,21 @@ public class GameController : MonoBehaviour
         computerUnits.transform.SetParent(units.transform);
 
         //Create Some initial units
-      CreateUnit(UnitType.Land, User.Player, new Vector3(0, 1, 0));
-        CreateUnit(UnitType.Land, User.Player, new Vector3(1, 1, 0));
-        CreateUnit(UnitType.Land, User.Player, new Vector3(2, 1, 0));
-        CreateUnit(UnitType.Land, User.Player, new Vector3(3, 1, 0));
-        CreateUnit(UnitType.Land, User.Player, new Vector3(4, 1, 0));
-        CreateUnit(UnitType.Land, User.Player, new Vector3(5, 1, 0));
-        CreateUnit(UnitType.Land, User.Player, new Vector3(6, 1, 0));
-        CreateUnit(UnitType.Land, User.Player, new Vector3(7, 1, 0));
+      CreateUnit((int)UnitType.LAV, (int)User.Player, new Vector3(0, 1, 0));
+        CreateUnit((int)UnitType.LAV, (int)User.Player, new Vector3(1, 1, 0));
+		/* CreateUnit(UnitType.Land, User.Player, new Vector3(2, 1, 0));
+		 CreateUnit(UnitType.Land, User.Player, new Vector3(3, 1, 0));
+		 CreateUnit(UnitType.Land, User.Player, new Vector3(4, 1, 0));
+		 CreateUnit(UnitType.Land, User.Player, new Vector3(5, 1, 0));
+		 CreateUnit(UnitType.Land, User.Player, new Vector3(6, 1, 0));
+		 CreateUnit(UnitType.Land, User.Player, new Vector3(7, 1, 0));*/
+		 
+		CreateUnit((int)UnitType.ground_fac, (int)User.Player, new Vector3(7, 1, 0));
+        CreateUnit((int)UnitType.LAV, (int)User.Computer, new Vector3(0, 1, 7));
+        CreateUnit((int)UnitType.bomber, (int)User.Player, new Vector3(0, 7.5f, 0));
+        CreateUnit((int)UnitType.bomber, (int)User.Computer, new Vector3(0, 7.5f, 7));
 
-        CreateUnit(UnitType.Land, User.Computer, new Vector3(0, 1, 7));
-        CreateUnit(UnitType.Flying, User.Player, new Vector3(0, 7.5f, 0));
-        CreateUnit(UnitType.Flying, User.Computer, new Vector3(0, 7.5f, 7));
-
-		CreateUnit(UnitType.Commander, User.Player, new Vector3(10, 1, 0));
+		CreateUnit((int)UnitType.Commander, (int)User.Player, new Vector3(10, 1, 0));
 	}
 
     // Update is called once per frame
@@ -91,45 +96,50 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void CreateUnit(UnitType type, User user, Vector3 position)
+    public void CreateUnit(int type, int user, Vector3 position)
     {
         //need to require that the spawned object is a rigidbody
         GameObject unit;
 
-        if(type == UnitType.Flying)
+        if(type == (int)UnitType.bomber)
         {
-            unit = Instantiate(flyingUnit, position, flyingUnit.transform.rotation) as GameObject;
+            unit = Instantiate(air_bomber, position, Quaternion.identity) as GameObject;
             unit.transform.SetParent(units.transform);
         }
-        else if (type == UnitType.Land)
+        else if (type == (int)UnitType.LAV)
         {
-            unit = Instantiate(landUnit, position, Quaternion.identity) as GameObject;
+            unit = Instantiate(ground_LAV, position, Quaternion.identity) as GameObject;
             unit.transform.SetParent(units.transform);
         }
-		else if (type == UnitType.Commander)
+		else if (type == (int)UnitType.Commander)
 		{
-			unit = Instantiate(commanderUnit, position, Quaternion.identity) as GameObject;
+			unit = Instantiate(ground_commander, position, Quaternion.identity) as GameObject;
+			unit.transform.SetParent(units.transform);
+		}
+		else if(type == (int)UnitType.ground_fac) {
+			unit = Instantiate(ground_spawner, position, Quaternion.identity) as GameObject;
 			unit.transform.SetParent(units.transform);
 		}
         else
         {
-            unit = Instantiate(landUnit, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+            unit = Instantiate(ground_LAV, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
             Debug.Log("Error creating a unit");
         }
 
-        //set user tag
-        if (user == User.Player)
+		unit.GetComponent<Allegiance>().setAllegiance((int)user);
+
+		//set user tag
+		if (user == (int)User.Player)
         {
             unit.transform.tag = "Player";
             unit.transform.SetParent(playerUnits.transform);
 			unit.GetComponentInChildren<Renderer>().material = playerFlying;
         }
-        else if (user == User.Computer)
+        else if (user == (int)User.Computer)
         {
             unit.transform.tag = "Computer";
             unit.transform.SetParent(computerUnits.transform);
 			unit.GetComponentInChildren<Renderer>().material = computerFlying;
         }
     }
-
 }

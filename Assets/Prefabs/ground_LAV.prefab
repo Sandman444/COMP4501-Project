@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3706732989669456841}
   - component: {fileID: 4009297665662496828}
   - component: {fileID: 813273419996056713}
+  - component: {fileID: 729730636321150861}
   m_Layer: 0
   m_Name: ground_LAV
   m_TagString: Untagged
@@ -131,6 +132,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &729730636321150861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751349612044047995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c0204344f387b74b8c307c81e74f94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allegiance: 0
 --- !u!95 &1811438317034537087
 Animator:
   serializedVersion: 3
@@ -357,6 +371,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.13214
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 3d04f2d2984427a4bb917bb63d3f0631, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: feac5d994cf3c466e9364af2866f9a1c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d04f2d2984427a4bb917bb63d3f0631, type: 3}
 --- !u!1 &5130012963796859374 stripped

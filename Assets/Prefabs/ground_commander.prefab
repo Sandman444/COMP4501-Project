@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7119237305945897709}
   - component: {fileID: 8013344687958688689}
   - component: {fileID: 8787647021363807996}
+  - component: {fileID: 2751237577014231319}
   m_Layer: 0
   m_Name: ground_commander
   m_TagString: Untagged
@@ -131,6 +132,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2751237577014231319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6837827755807158628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c0204344f387b74b8c307c81e74f94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allegiance: {fileID: 0}
+  isPlayer: 0
 --- !u!1001 &1237505450859154460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -315,6 +330,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: edcf5ac6916a8d74893b4c89d1fc1f0a, type: 2}
+    - target: {fileID: 13700000, guid: 80497b65b662d2445abcace87cbdf6d9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: feac5d994cf3c466e9364af2866f9a1c, type: 2}
     - target: {fileID: 400014, guid: 80497b65b662d2445abcace87cbdf6d9, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.03480465

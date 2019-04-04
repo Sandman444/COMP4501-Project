@@ -48,7 +48,7 @@ public class UnitController : MonoBehaviour
         }
 
         //TEMP
-        normalColor = this.GetComponent<Renderer>().material;
+        //normalColor = this.GetComponent<Renderer>().material;
     }
 
     // Update is called once per frame
