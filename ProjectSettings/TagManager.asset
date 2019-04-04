@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Terrain
+  - game_player
+  - game_computer
+  - game_tag
   - Computer
   layers:
   - Default

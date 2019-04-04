@@ -49,7 +49,7 @@ public class UnitController : MonoBehaviour
         }
 
         //TEMP
-        normalColor = this.GetComponent<Renderer>().material;
+        //normalColor = this.GetComponent<Renderer>().material;
     }
 
     // Update is called once per frame
@@ -100,7 +100,7 @@ public class UnitController : MonoBehaviour
                     foreach (var selectableObj in selectedUnits)
                     {
                         selectableObj.MoveUnit(hit.point);
-						selectableObj.GetComponentInChildren<Animator>().SetTrigger("move");
+						            selectableObj.GetComponentInChildren<Animator>().SetTrigger("move");
                     }
                 }
             }
