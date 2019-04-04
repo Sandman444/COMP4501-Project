@@ -8,14 +8,15 @@ public class Attack : MonoBehaviour
     public int damage;
     public float attackTime = 0.5f;
     float timer = 0;
+    LineRenderer laser;
 
-    GameObject attackTarget;
-    bool attacking;
+    public GameObject attackTarget;
 
     // Start is called before the first frame update
     void Start()
     {
         attackTarget = null;
+        laser = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
@@ -35,13 +36,15 @@ public class Attack : MonoBehaviour
 
     public void AttackUnit(GameObject enemy)
     {
+        //check if there is a target to attack
         if (attackTarget != null)
         {
             Health enemyHealth = enemy.GetComponent<Health>();
             if (enemyHealth != null && enemyHealth.currentHealth > 0 && TestHit() == true)
             {
                 bool targetAlive = enemy.GetComponent<Health>().TakeDamage(damage);
-                if(targetAlive == false)
+                AttackAction();
+                if (targetAlive == false)
                 {
                     attackTarget = null;
                 }
@@ -54,8 +57,15 @@ public class Attack : MonoBehaviour
         attackTarget = target;
     }
 
-    bool TestHit()
+    public bool TestHit()
     {
         return true;
+    }
+    public void AttackAction()
+    {
+        laser.SetPosition(0, transform.position);
+        laser.SetPosition(1, attackTarget.transform.position);
+        Debug.Log("Normal Attack");
+        //do nothing for normal attack
     }
 }

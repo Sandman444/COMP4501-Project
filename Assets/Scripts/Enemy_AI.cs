@@ -9,6 +9,7 @@ public class Enemy_AI : MonoBehaviour
     Attack attack;
     UnitController uc;
     GameObject playerUnits;
+    LineRenderer laser;
 
     GameObject target;
     float timeToNewWander = 1.0f;
@@ -22,6 +23,7 @@ public class Enemy_AI : MonoBehaviour
         ac = this.GetComponent<ActionController>();
         uc = this.GetComponent<UnitController>();
         attack = this.GetComponent<Attack>();
+        laser = this.GetComponent<LineRenderer>();
         target = null;
         wanderDest = new Vector3(Random.Range(-1.0f, 1.0f) * 500, 0, Random.Range(-1.0f, 1.0f) * 500);
     }
@@ -63,6 +65,7 @@ public class Enemy_AI : MonoBehaviour
 
         if (anim.GetBool("isAttacking") == true)
         {
+            laser.enabled = true;
             if (Vector3.Distance(target.transform.position, transform.position) >= attack.range)
             {
                 ac.MoveUnit(target.transform.position);
@@ -71,6 +74,7 @@ public class Enemy_AI : MonoBehaviour
         else if (anim.GetBool("isSearching") == true)
         {
             //wander around searching for an enemy unit
+            laser.enabled = false;
             timer += Time.deltaTime;
             if (timer > timeToNewWander)
             {
