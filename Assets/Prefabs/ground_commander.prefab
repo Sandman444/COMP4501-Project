@@ -64,8 +64,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a7312727aeb4b6c82acc457aeef4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightColor: {fileID: 0}
-  viewRange: 0
+  highlightColor: {fileID: 2100000, guid: 05ef7d4cbf0e840288061cbe061a5637, type: 2}
+  viewRange: 30
   unitSelector: {fileID: 100002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
   playerUnit: 0
   selected: 0
@@ -109,10 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c00725a76cb649f5980eb3388255f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 50
+  range: 20
   minRange: 0
-  damage: 15
-  attackTime: 0.5
+  damage: 35
+  attackTime: 2
 --- !u!195 &8787647021363807996
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -286,6 +286,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7812017285058670168}
     m_Modifications:
+    - target: {fileID: 100184, guid: 80497b65b662d2445abcace87cbdf6d9, type: 3}
+      propertyPath: m_Name
+      value: robot_ostrich_idle_walk
+      objectReference: {fileID: 0}
     - target: {fileID: 400184, guid: 80497b65b662d2445abcace87cbdf6d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -329,10 +333,6 @@ PrefabInstance:
     - target: {fileID: 400184, guid: 80497b65b662d2445abcace87cbdf6d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100184, guid: 80497b65b662d2445abcace87cbdf6d9, type: 3}
-      propertyPath: m_Name
-      value: robot_ostrich_idle_walk
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 80497b65b662d2445abcace87cbdf6d9, type: 3}
       propertyPath: m_Controller

@@ -21,8 +21,8 @@ public class canSpawn : MonoBehaviour
     {
 		maxCooldown = 6;
 		cooldown = maxCooldown;
-		isSpawning = false;
-		target = -1;
+		isSpawning = true;
+		target = obj1;
 		game = GameObject.FindGameObjectWithTag("game_tag");
 		
 	}
@@ -41,30 +41,33 @@ public class canSpawn : MonoBehaviour
 			}
 			cooldown -= Time.deltaTime;
 		}
-		if (Input.GetKey(KeyCode.Alpha1)) {   //Engi			---		Engi
-			target = obj1;
-		}
-		if (Input.GetKey(KeyCode.Alpha2)) {   //LAV			---		Bomber
-			target = obj2;
-		}
-		if (Input.GetKey(KeyCode.Alpha3)) {   //Tank			---		Gunship
-			target = obj3;
-		}
-		if (Input.GetKey(KeyCode.Alpha4)) {   //Pepsi man		---		Other flying thing
-			target = obj4;
-		}
-		if (Input.GetKey(KeyCode.Q)) {
-			isSpawning = !isSpawning;
-			if (isSpawning) {
-				transform.parent.gameObject.GetComponentInChildren<Animator>().SetTrigger("build");
+		if (this.GetComponentInParent<Allegiance>().allegiance == 0) {
+			if (Input.GetKey(KeyCode.Alpha1)) {   //Engi			---		Engi
+				target = obj1;
 			}
-			else {
-				transform.parent.gameObject.GetComponentInChildren<Animator>().SetTrigger("idle");
+			if (Input.GetKey(KeyCode.Alpha2)) {   //LAV			---		Bomber
+				target = obj2;
 			}
-			
-			cooldown = maxCooldown;
-			
+			if (Input.GetKey(KeyCode.Alpha3)) {   //Tank			---		Gunship
+				target = obj3;
+			}
+			if (Input.GetKey(KeyCode.Alpha4)) {   //Pepsi man		---		Other flying thing
+				target = obj4;
+			}
+			if (Input.GetKey(KeyCode.Q)) {
+				isSpawning = !isSpawning;
+				if (isSpawning) {
+					transform.parent.gameObject.GetComponentInChildren<Animator>().SetTrigger("build");
+				}
+				else {
+					transform.parent.gameObject.GetComponentInChildren<Animator>().SetTrigger("idle");
+				}
+
+				cooldown = maxCooldown;
+
+			}
 		}
+		
 	}
 
 }

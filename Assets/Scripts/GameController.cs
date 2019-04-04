@@ -46,21 +46,12 @@ public class GameController : MonoBehaviour
         computerUnits.transform.SetParent(units.transform);
 
         //Create Some initial units
-      CreateUnit((int)UnitType.LAV, (int)User.Player, new Vector3(0, 1, 0));
-        CreateUnit((int)UnitType.LAV, (int)User.Player, new Vector3(1, 1, 0));
-		/* CreateUnit(UnitType.Land, User.Player, new Vector3(2, 1, 0));
-		 CreateUnit(UnitType.Land, User.Player, new Vector3(3, 1, 0));
-		 CreateUnit(UnitType.Land, User.Player, new Vector3(4, 1, 0));
-		 CreateUnit(UnitType.Land, User.Player, new Vector3(5, 1, 0));
-		 CreateUnit(UnitType.Land, User.Player, new Vector3(6, 1, 0));
-		 CreateUnit(UnitType.Land, User.Player, new Vector3(7, 1, 0));*/
 		 
-		CreateUnit((int)UnitType.ground_fac, (int)User.Player, new Vector3(7, 1, 0));
-        CreateUnit((int)UnitType.LAV, (int)User.Computer, new Vector3(0, 1, 7));
-        CreateUnit((int)UnitType.bomber, (int)User.Player, new Vector3(0, 7.5f, 0));
-        CreateUnit((int)UnitType.bomber, (int)User.Computer, new Vector3(0, 7.5f, 7));
+		CreateUnit((int)UnitType.ground_fac, (int)User.Player, new Vector3(-123, -2.9f, -165));
+		CreateUnit((int)UnitType.Commander, (int)User.Player, new Vector3(-123, 1, -170));
 
-		CreateUnit((int)UnitType.Commander, (int)User.Player, new Vector3(10, 1, 0));
+		CreateUnit((int)UnitType.ground_fac, (int)User.Computer, new Vector3(-25, -2.9f, 0));
+		CreateUnit((int)UnitType.Commander, (int)User.Computer, new Vector3(0, -3, -15));
 	}
 
     // Update is called once per frame
@@ -140,6 +131,7 @@ public class GameController : MonoBehaviour
             unit.transform.tag = "Computer";
             unit.transform.SetParent(computerUnits.transform);
 			unit.GetComponentInChildren<Renderer>().material = computerFlying;
+
 			unit.AddComponent<Enemy_AI>();
             unit.GetComponent<Enemy_AI>().ConnectPlayerUnits(playerUnits);
         }

@@ -61,9 +61,10 @@ public class UnitController : MonoBehaviour
             mousePosition = Input.mousePosition;
             //Create a ray from the camera to the space
             var camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+			Debug.Log(camRay);
             if (Physics.Raycast(camRay, out hit))
             {
-                Debug.Log(hit.transform.tag);
+                //Debug.Log(hit.transform.tag);
                 if (hit.transform.CompareTag("Player"))
                 {
                     SelectUnit(hit.transform.gameObject.GetComponent<ActionController>(), Input.GetKey(KeyCode.LeftShift));
@@ -94,7 +95,7 @@ public class UnitController : MonoBehaviour
             var camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(camRay, out hit))
             {
-                Debug.Log(hit.transform.tag);
+                //Debug.Log(hit.transform.tag);
                 if (hit.transform.CompareTag("Terrain"))
                 {
                     foreach (var selectableObj in selectedUnits)

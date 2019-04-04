@@ -31,11 +31,11 @@ public class CameraController : MonoBehaviour
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            GetComponent<Camera>().fieldOfView--;
+            GetComponent<Camera>().orthographicSize --;
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            GetComponent<Camera>().fieldOfView++;
+            GetComponent<Camera>().orthographicSize++;
         }
         transform.position = pos;
     }
