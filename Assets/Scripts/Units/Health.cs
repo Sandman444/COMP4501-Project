@@ -24,16 +24,22 @@ public class Health : MonoBehaviour
 
     }
     //Damage Unit
-    public void TakeDamage(int amount)
+    public bool TakeDamage(int amount)
     {
         damaged = true;
         currentHealth -= amount;
-        healthBar.sizeDelta = new Vector2(100 * ((float)currentHealth/startingHealth), healthBar.sizeDelta.y);
-
+    
         //kill if health is zero
         if (currentHealth <= 0)
         {
+            Debug.Log("Killing a unit");
             Kill();
+            return false;
+        }
+        else
+        {
+            healthBar.sizeDelta = new Vector2(100 * ((float)currentHealth / startingHealth), healthBar.sizeDelta.y);
+            return true;
         }
     }
 
