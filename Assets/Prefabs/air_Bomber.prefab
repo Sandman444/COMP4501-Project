@@ -10,7 +10,7 @@ Animator:
   m_GameObject: {fileID: 255045056186897665}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: edcf5ac6916a8d74893b4c89d1fc1f0a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4379aabea199ffe4d918e2f3d2256eb7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -35,7 +35,6 @@ GameObject:
   - component: {fileID: 7977533878234489190}
   - component: {fileID: 1855781033421804705}
   - component: {fileID: 6406699206224464799}
-  - component: {fileID: 1198720428911994998}
   m_Layer: 0
   m_Name: air_Bomber
   m_TagString: Untagged
@@ -85,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightColor: {fileID: 0}
+  viewRange: 30
   unitSelector: {fileID: 100002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
   playerUnit: 0
   selected: 1
@@ -113,9 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741bfe630764648578d378db7afd024e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 25
-  currentHealth: 25
-  healthBar: {fileID: 2094736948785983909}
+  startingHealth: 40
+  currentHealth: 40
+  healthBar: {fileID: 2094736949299841960}
 --- !u!114 &7977533878234489190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,8 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c00725a76cb649f5980eb3388255f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 50
-  damage: 10
+  range: 20
+  minRange: 0
+  damage: 1
   attackTime: 0.5
 --- !u!195 &1855781033421804705
 NavMeshAgent:
@@ -155,8 +156,6 @@ NavMeshAgent:
   m_ObstacleAvoidanceType: 1
 --- !u!114 &6406699206224464799
 MonoBehaviour:
---- !u!23 &1198720428911994998
-MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -167,36 +166,7 @@ MeshRenderer:
   m_Script: {fileID: 11500000, guid: 6c0204344f387b74b8c307c81e74f94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allegiance: {fileID: 0}
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  allegiance: 0
 --- !u!1001 &255045056186864545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -204,14 +174,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 960517197594251360}
     m_Modifications:
-    - target: {fileID: 100000, guid: f8d71b691bbf9a04b9d6b133c935c43d, type: 3}
-      propertyPath: m_Name
-      value: bomber_model
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: f8d71b691bbf9a04b9d6b133c935c43d, type: 3}
-      propertyPath: m_Name
-      value: bomber_body
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f8d71b691bbf9a04b9d6b133c935c43d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.01027181
@@ -267,6 +229,14 @@ PrefabInstance:
     - target: {fileID: 400000, guid: f8d71b691bbf9a04b9d6b133c935c43d, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.0641631
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f8d71b691bbf9a04b9d6b133c935c43d, type: 3}
+      propertyPath: m_Name
+      value: bomber_model
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f8d71b691bbf9a04b9d6b133c935c43d, type: 3}
+      propertyPath: m_Name
+      value: bomber_body
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f8d71b691bbf9a04b9d6b133c935c43d, type: 3}
       propertyPath: m_LocalPosition.x

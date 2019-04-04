@@ -34,16 +34,16 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      //TEMP: Remove Testing Cube
-      //this.transform.Find("Testing Cube").GetComponent<Renderer>().enabled = false;
+		//TEMP: Remove Testing Cube
+		//this.transform.Find("Testing Cube").GetComponent<Renderer>().enabled = false;
 
-      //Setup Unit Storage GameObjects
-      units = new GameObject("Units");
-      units.transform.SetParent(this.transform);
-      playerUnits = new GameObject("Player Units");
-      playerUnits.transform.SetParent(units.transform);
-      computerUnits = new GameObject("Computer Units");
-      computerUnits.transform.SetParent(units.transform);
+        //Setup Unit Storage GameObjects
+        units = new GameObject("Units");
+        units.transform.SetParent(this.transform);
+        playerUnits = new GameObject("Player Units");
+        playerUnits.transform.SetParent(units.transform);
+        computerUnits = new GameObject("Computer Units");
+        computerUnits.transform.SetParent(units.transform);
 
         //Create Some initial units
       CreateUnit((int)UnitType.LAV, (int)User.Player, new Vector3(0, 1, 0));
@@ -139,8 +139,8 @@ public class GameController : MonoBehaviour
         {
             unit.transform.tag = "Computer";
             unit.transform.SetParent(computerUnits.transform);
-			      unit.GetComponentInChildren<Renderer>().material = computerFlying;
-            unit.AddComponent<Enemy_AI>();
+			unit.GetComponentInChildren<Renderer>().material = computerFlying;
+			unit.AddComponent<Enemy_AI>();
             unit.GetComponent<Enemy_AI>().ConnectPlayerUnits(playerUnits);
         }
     }

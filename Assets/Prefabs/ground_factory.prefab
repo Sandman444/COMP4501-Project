@@ -64,9 +64,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741bfe630764648578d378db7afd024e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 25
-  currentHealth: 25
-  healthBar: {fileID: 0}
+  startingHealth: 100
+  currentHealth: 100
+  healthBar: {fileID: 4403835611650544555}
 --- !u!114 &5203267339625070187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,11 +138,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8014202180823940310}
     m_Modifications:
-    - target: {fileID: 7708732842434750787, guid: 108311e93c365aa4e8e1a0000df6f78c,
-        type: 3}
-      propertyPath: m_Name
-      value: spawner
-      objectReference: {fileID: 0}
     - target: {fileID: 1098430175903837207, guid: 108311e93c365aa4e8e1a0000df6f78c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -198,6 +193,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7708732842434750787, guid: 108311e93c365aa4e8e1a0000df6f78c,
+        type: 3}
+      propertyPath: m_Name
+      value: spawner
+      objectReference: {fileID: 0}
     - target: {fileID: 7093012279912260077, guid: 108311e93c365aa4e8e1a0000df6f78c,
         type: 3}
       propertyPath: obj2
@@ -244,10 +244,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8014202180823940310}
     m_Modifications:
-    - target: {fileID: 100026, guid: 65fc49e3e28bbd744a3377a19d3216d7, type: 3}
-      propertyPath: m_Name
-      value: ground_factory
-      objectReference: {fileID: 0}
     - target: {fileID: 400026, guid: 65fc49e3e28bbd744a3377a19d3216d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.028124
@@ -303,6 +299,10 @@ PrefabInstance:
     - target: {fileID: 400026, guid: 65fc49e3e28bbd744a3377a19d3216d7, type: 3}
       propertyPath: m_LocalScale.z
       value: 3.3698
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: 65fc49e3e28bbd744a3377a19d3216d7, type: 3}
+      propertyPath: m_Name
+      value: ground_factory
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 65fc49e3e28bbd744a3377a19d3216d7, type: 3}
       propertyPath: m_Controller
@@ -453,6 +453,12 @@ PrefabInstance:
 --- !u!224 &4403835612210424230 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6261448507723530818, guid: b665a355e3ac04745a3939b3fb11d7ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 7780165264985205732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &4403835611650544555 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6261448508237412431, guid: b665a355e3ac04745a3939b3fb11d7ec,
     type: 3}
   m_PrefabInstance: {fileID: 7780165264985205732}
   m_PrefabAsset: {fileID: 0}

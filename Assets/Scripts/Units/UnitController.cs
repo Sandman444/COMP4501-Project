@@ -7,13 +7,13 @@ public class UnitController : MonoBehaviour
     //TEMP: Remove when unit selector projector works
     private Material normalColor;
     public Material highlightColor;
+	public float viewRange;
 
     public GameObject unitSelector;
 
     //Variables
     public bool playerUnit;
     public bool selected;
-    public float viewRange;
 
     GameController game;
     List<ActionController> selectedUnits = new List<ActionController>();
@@ -63,7 +63,7 @@ public class UnitController : MonoBehaviour
             var camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(camRay, out hit))
             {
-                //Debug.Log(hit.transform.tag);
+                Debug.Log(hit.transform.tag);
                 if (hit.transform.CompareTag("Player"))
                 {
                     SelectUnit(hit.transform.gameObject.GetComponent<ActionController>(), Input.GetKey(KeyCode.LeftShift));
@@ -94,13 +94,13 @@ public class UnitController : MonoBehaviour
             var camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(camRay, out hit))
             {
-                //Debug.Log(hit.transform.tag);
+                Debug.Log(hit.transform.tag);
                 if (hit.transform.CompareTag("Terrain"))
                 {
                     foreach (var selectableObj in selectedUnits)
                     {
                         selectableObj.MoveUnit(hit.point);
-						            selectableObj.GetComponentInChildren<Animator>().SetTrigger("move");
+						selectableObj.GetComponentInChildren<Animator>().SetTrigger("move");
                     }
                 }
             }
