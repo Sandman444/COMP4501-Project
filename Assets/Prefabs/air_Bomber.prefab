@@ -35,6 +35,7 @@ GameObject:
   - component: {fileID: 7977533878234489190}
   - component: {fileID: 1855781033421804705}
   - component: {fileID: 6406699206224464799}
+  - component: {fileID: 1198720428911994998}
   m_Layer: 0
   m_Name: air_Bomber
   m_TagString: Untagged
@@ -114,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 25
   currentHealth: 25
-  healthBar: {fileID: 2094736949299841960}
+  healthBar: {fileID: 2094736948785983909}
 --- !u!114 &7977533878234489190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 50
   damage: 10
+  attackTime: 0.5
 --- !u!195 &1855781033421804705
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -153,6 +155,8 @@ NavMeshAgent:
   m_ObstacleAvoidanceType: 1
 --- !u!114 &6406699206224464799
 MonoBehaviour:
+--- !u!23 &1198720428911994998
+MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -164,6 +168,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allegiance: {fileID: 0}
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1001 &255045056186864545
 PrefabInstance:
   m_ObjectHideFlags: 0

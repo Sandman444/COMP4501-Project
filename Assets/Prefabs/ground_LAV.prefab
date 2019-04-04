@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4009297665662496828}
   - component: {fileID: 813273419996056713}
   - component: {fileID: 729730636321150861}
+  - component: {fileID: 8820571962694502617}
   m_Layer: 0
   m_Name: ground_LAV
   m_TagString: Untagged
@@ -68,6 +69,7 @@ MonoBehaviour:
   unitSelector: {fileID: 100002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
   playerUnit: 0
   selected: 0
+  viewRange: 30
 --- !u!114 &7810508345218202608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 25
   currentHealth: 25
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 6297295740624621431}
 --- !u!114 &4009297665662496828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,8 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c00725a76cb649f5980eb3388255f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 50
-  damage: 10
+  range: 20
+  minRange: 5
+  damage: 2
+  attackTime: 0.5
 --- !u!195 &813273419996056713
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -134,6 +138,8 @@ NavMeshAgent:
   m_ObstacleAvoidanceType: 4
 --- !u!114 &729730636321150861
 MonoBehaviour:
+--- !u!23 &8820571962694502617
+MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -145,6 +151,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allegiance: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!95 &1811438317034537087
 Animator:
   serializedVersion: 3
@@ -156,6 +191,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: edcf5ac6916a8d74893b4c89d1fc1f0a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 07d9adfb839fc47ca995b0074999ecb4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -301,6 +337,12 @@ PrefabInstance:
 --- !u!224 &6297295741188830586 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6261448507723530818, guid: b665a355e3ac04745a3939b3fb11d7ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 108472469716809528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &6297295740624621431 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6261448508237412431, guid: b665a355e3ac04745a3939b3fb11d7ec,
     type: 3}
   m_PrefabInstance: {fileID: 108472469716809528}
   m_PrefabAsset: {fileID: 0}
