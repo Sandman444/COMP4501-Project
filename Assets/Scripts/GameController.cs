@@ -59,7 +59,7 @@ public class GameController : MonoBehaviour
         CreateUnit(UnitType.Flying, User.Player, new Vector3(-8, 7.5f, 7));
         //CreateUnit(UnitType.Flying, User.Computer, new Vector3(0, 7.5f, 7));*/
 
-        CreateUnit(UnitType.Commander, User.Player, new Vector3(10, 1, 0));
+        CreateUnit(UnitType.Flying, User.Player, new Vector3(10, 1, 0));
 
         //Create Enemy AI test unit
         CreateUnit(UnitType.Land, User.Computer, new Vector3(0, 1, 0));

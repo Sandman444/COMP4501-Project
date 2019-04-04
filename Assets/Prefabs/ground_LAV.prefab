@@ -68,7 +68,7 @@ MonoBehaviour:
   unitSelector: {fileID: 100002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
   playerUnit: 0
   selected: 0
-  viewRange: 50
+  viewRange: 30
 --- !u!114 &7810508345218202608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,8 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c00725a76cb649f5980eb3388255f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
-  minRange: 0
+  range: 20
+  minRange: 5
   damage: 2
   attackTime: 0.5
 --- !u!195 &813273419996056713

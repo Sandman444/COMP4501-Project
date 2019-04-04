@@ -11,6 +11,9 @@ public class Enemy_AI : MonoBehaviour
     GameObject playerUnits;
 
     GameObject target;
+    float timeToNewWander = 1.0f;
+    float timer = 0;
+    Vector3 wanderDest;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,7 @@ public class Enemy_AI : MonoBehaviour
         uc = this.GetComponent<UnitController>();
         attack = this.GetComponent<Attack>();
         target = null;
+        wanderDest = new Vector3(Random.Range(-1.0f, 1.0f) * 500, 0, Random.Range(-1.0f, 1.0f) * 500);
     }
 
     // Update is called once per frame
@@ -54,7 +58,7 @@ public class Enemy_AI : MonoBehaviour
             anim.SetBool("isSearching", true);
             target = null;
             this.GetComponent<Attack>().setTarget(target);
-            Debug.Log("Lost target");
+            //Debug.Log("Lost target");
         }
 
         if (anim.GetBool("isAttacking") == true)
@@ -63,6 +67,20 @@ public class Enemy_AI : MonoBehaviour
             {
                 ac.MoveUnit(target.transform.position);
             }
+        }
+        else if (anim.GetBool("isSearching") == true)
+        {
+            //wander around searching for an enemy unit
+            timer += Time.deltaTime;
+            if (timer > timeToNewWander)
+            {
+                wanderDest = new Vector3(Random.Range(-1.0f, 1.0f) * 500, 0, Random.Range(-1.0f, 1.0f) * 500);
+                timer = 0;
+                timeToNewWander = Random.Range(0.4f, 2.5f);
+                Debug.Log("new direction");
+            }
+            ac.MoveUnit(wanderDest);
+
         }
     }
 
