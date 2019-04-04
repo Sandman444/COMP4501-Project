@@ -137,6 +137,7 @@ public class GameController : MonoBehaviour
             unit.transform.SetParent(computerUnits.transform);
 			unit.GetComponentInChildren<Renderer>().material = computerFlying;
             unit.AddComponent<Enemy_AI>();
+            unit.GetComponent<Enemy_AI>().ConnectPlayerUnits(playerUnits);
         }
     }
 

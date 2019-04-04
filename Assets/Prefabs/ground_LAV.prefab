@@ -68,6 +68,7 @@ MonoBehaviour:
   unitSelector: {fileID: 100002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
   playerUnit: 0
   selected: 0
+  viewRange: 50
 --- !u!114 &7810508345218202608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 25
   currentHealth: 25
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 6297295740624621431}
 --- !u!114 &4009297665662496828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,8 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c00725a76cb649f5980eb3388255f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 50
-  damage: 10
+  range: 10
+  minRange: 0
+  damage: 2
+  attackTime: 0.5
 --- !u!195 &813273419996056713
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -179,7 +182,7 @@ Animator:
   m_GameObject: {fileID: 5130012963796859374}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: edcf5ac6916a8d74893b4c89d1fc1f0a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 07d9adfb839fc47ca995b0074999ecb4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -325,6 +328,12 @@ PrefabInstance:
 --- !u!224 &6297295741188830586 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6261448507723530818, guid: b665a355e3ac04745a3939b3fb11d7ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 108472469716809528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &6297295740624621431 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6261448508237412431, guid: b665a355e3ac04745a3939b3fb11d7ec,
     type: 3}
   m_PrefabInstance: {fileID: 108472469716809528}
   m_PrefabAsset: {fileID: 0}
