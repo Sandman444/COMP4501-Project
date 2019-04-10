@@ -6,15 +6,15 @@ TerrainLayer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NewLayer
-  m_DiffuseTexture: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
-  m_NormalMapTexture: {fileID: 2800000, guid: b1d7fee26e54cc3498f6267f072a45b9, type: 3}
-  m_MaskMapTexture: {fileID: 2800000, guid: b1d7fee26e54cc3498f6267f072a45b9, type: 3}
-  m_TileSize: {x: 2, y: 2}
+  m_Name: turrainLayer
+  m_DiffuseTexture: {fileID: 2800000, guid: d21a10f4be14f184fa3107575ddf738a, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: 911a857c057bec246847a454c2d11af8, type: 3}
+  m_MaskMapTexture: {fileID: 2800000, guid: ccb92da180146254298cd11bad8c8574, type: 3}
+  m_TileSize: {x: 100, y: 100}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0.31132078, g: 0.21293166, b: 0.21293166, a: 0}
-  m_Metallic: 0.134
-  m_Smoothness: 0.456
+  m_Metallic: 0.072
+  m_Smoothness: 0.169
   m_NormalScale: 1
   m_DiffuseRemapMin: {x: 0, y: 0, z: 0, w: 0}
   m_DiffuseRemapMax: {x: 1, y: 1, z: 1, w: 1}
