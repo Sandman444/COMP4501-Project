@@ -130,6 +130,10 @@ public class GameController : MonoBehaviour
             unit.transform.tag = "Player";
             unit.transform.SetParent(playerUnits.transform);
 			unit.GetComponentInChildren<Renderer>().material = playerFlying;
+
+            //add AI behaviour
+            unit.AddComponent<Player_AI>();
+            unit.GetComponent<Player_AI>().ConnectEnemyUnits(computerUnits);
         }
         else if (user == (int)User.Computer)
         {
@@ -137,6 +141,7 @@ public class GameController : MonoBehaviour
             unit.transform.SetParent(computerUnits.transform);
 			unit.GetComponentInChildren<Renderer>().material = computerFlying;
 
+            //add AI behaviour
 			unit.AddComponent<Enemy_AI>();
             unit.GetComponent<Enemy_AI>().ConnectPlayerUnits(playerUnits);
         }
