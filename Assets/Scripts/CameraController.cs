@@ -13,19 +13,19 @@ public class CameraController : MonoBehaviour
     {
         Vector3 pos = transform.position;
         factor = GetComponent<Camera>().fieldOfView / 60f * 10.0f;
-        if (Input.GetKey("up") || Input.mousePosition.y >= Screen.height - panBordertThickness)
+        if (Input.GetKey("up")/* || Input.mousePosition.y >= Screen.height - panBordertThickness*/)
         {
             pos.z += scrollSpeed * Time.deltaTime * factor;
         }
-        if (Input.GetKey("down") || Input.mousePosition.y <= panBordertThickness)
+        if (Input.GetKey("down") /*|| Input.mousePosition.y <= panBordertThickness*/)
         {
             pos.z -= scrollSpeed * Time.deltaTime * factor;
         }
-        if (Input.GetKey("right") || Input.mousePosition.x >= Screen.width - panBordertThickness)
+        if (Input.GetKey("right")/* || Input.mousePosition.x >= Screen.width - panBordertThickness*/)
         {
             pos.x += scrollSpeed * Time.deltaTime * factor;
         }
-        if (Input.GetKey("left") || Input.mousePosition.x <= panBordertThickness)
+        if (Input.GetKey("left") /*|| Input.mousePosition.x <= panBordertThickness*/)
         {
             pos.x -= scrollSpeed * Time.deltaTime * factor;
         }
