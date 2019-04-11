@@ -32,6 +32,10 @@ public class GameController : MonoBehaviour
 	public GameObject ground_spawner;
 	public GameObject air_gunship;
 
+    //Laser Materials
+    public Material playerLaserMat;
+    public Material enemyLaserMat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -134,6 +138,7 @@ public class GameController : MonoBehaviour
             //add AI behaviour
             unit.AddComponent<Player_AI>();
             unit.GetComponent<Player_AI>().ConnectEnemyUnits(computerUnits);
+            //unit.GetComponent<Attack>().SetLaserMat(playerLaserMat);
         }
         else if (user == (int)User.Computer)
         {
@@ -144,6 +149,11 @@ public class GameController : MonoBehaviour
             //add AI behaviour
 			unit.AddComponent<Enemy_AI>();
             unit.GetComponent<Enemy_AI>().ConnectPlayerUnits(playerUnits);
+            if (unit.GetComponent<Attack>() != null)
+            {
+                Debug.Log("laser");
+            }
+            //unit.GetComponent<Attack>().SetLaserMat(enemyLaserMat);
         }
     }
 }

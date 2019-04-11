@@ -10,12 +10,18 @@ public class Attack : MonoBehaviour
     float timer = 0;
 
     GameObject attackTarget;
-    bool attacking;
+    Laser laser;
 
     // Start is called before the first frame update
     void Start()
     {
         attackTarget = null;
+
+        laser = transform.GetComponentInChildren<Laser>();
+        if (laser != null)
+        {
+            Debug.Log("connected");
+        }
     }
 
     // Update is called once per frame
@@ -43,7 +49,7 @@ public class Attack : MonoBehaviour
                 bool targetAlive = enemy.GetComponent<Health>().TakeDamage(damage);
                 if(targetAlive == false)
                 {
-                    attackTarget = null;
+                    clearTarget();
                 }
             }
         }
@@ -52,10 +58,22 @@ public class Attack : MonoBehaviour
     public void setTarget(GameObject target)
     {
         attackTarget = target;
+        laser.endPoint = target.transform;
+    }
+
+    public void clearTarget() 
+    {
+        attackTarget = null;
+        laser.endPoint = transform;
     }
 
     bool TestHit()
     {
         return true;
+    }
+
+    public void SetLaserMat(Material laserMat)
+    {
+        laser.SetLaserMat(laserMat);
     }
 }

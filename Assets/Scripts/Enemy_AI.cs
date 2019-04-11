@@ -30,7 +30,7 @@ public class Enemy_AI : MonoBehaviour
     void Update()
     {
         //if no target set to searching and continuously look for a new target
-        /*if (target == null)
+        if (target == null)
         {
             if (anim.GetBool("isSearching") == false)
             {
@@ -57,7 +57,7 @@ public class Enemy_AI : MonoBehaviour
             anim.SetBool("isAttacking", false);
             anim.SetBool("isSearching", true);
             target = null;
-            this.GetComponent<Attack>().setTarget(target);
+            this.GetComponent<Attack>().clearTarget();
             //Debug.Log("Lost target");
         }
 
@@ -81,7 +81,7 @@ public class Enemy_AI : MonoBehaviour
             }
             ac.MoveUnit(wanderDest);
 
-        }*/
+        }
     }
 
     public void ConnectPlayerUnits(GameObject units)

@@ -53,7 +53,7 @@ public class Player_AI : MonoBehaviour
             anim.SetBool("isAttacking", false);
             anim.SetBool("isSearching", true);
             target = null;
-            this.GetComponent<Attack>().setTarget(target);
+            this.GetComponent<Attack>().clearTarget();
             Debug.Log("Lost target");
         }
     }

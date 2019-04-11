@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641234, b: 0.57481724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1424,6 +1424,8 @@ MonoBehaviour:
     type: 3}
   air_gunship: {fileID: 6575399790294798293, guid: f2c7de030e373b0469581e8dc4046c53,
     type: 3}
+  playerLaserMat: {fileID: 2100000, guid: fcc8c175fb6ea46368bc4cd37265f5eb, type: 2}
+  enemyLaserMat: {fileID: 2100000, guid: aed3450c2d9be4202ae1206b01f23dd3, type: 2}
 --- !u!4 &2089962131
 Transform:
   m_ObjectHideFlags: 0
