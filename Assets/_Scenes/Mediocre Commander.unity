@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1181,6 +1181,8 @@ MonoBehaviour:
   air_bomber: {fileID: 4659081051459450229, guid: c856a9f5a8ab83b40b9b04d06e859e15,
     type: 3}
   ground_spawner: {fileID: 1479535804061377905, guid: fd9d26dd0172a604d9daf710d71d4b30,
+    type: 3}
+  air_gunship: {fileID: 6575399790294798293, guid: f2c7de030e373b0469581e8dc4046c53,
     type: 3}
 --- !u!4 &2089962131
 Transform:

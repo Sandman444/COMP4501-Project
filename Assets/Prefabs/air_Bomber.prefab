@@ -130,8 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 20
   minRange: 0
-  damage: 1
-  attackTime: 0.5
+  damage: 5
+  attackTime: 3
 --- !u!195 &1855781033421804705
 NavMeshAgent:
   m_ObjectHideFlags: 0

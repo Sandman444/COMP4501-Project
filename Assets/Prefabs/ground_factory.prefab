@@ -126,7 +126,7 @@ NavMeshAgent:
   m_AngularSpeed: 0
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 0.07
   m_BaseOffset: 0
@@ -156,11 +156,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8014202180823940310}
     m_Modifications:
-    - target: {fileID: 7708732842434750787, guid: 108311e93c365aa4e8e1a0000df6f78c,
-        type: 3}
-      propertyPath: m_Name
-      value: spawner
-      objectReference: {fileID: 0}
     - target: {fileID: 1098430175903837207, guid: 108311e93c365aa4e8e1a0000df6f78c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -216,6 +211,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7708732842434750787, guid: 108311e93c365aa4e8e1a0000df6f78c,
+        type: 3}
+      propertyPath: m_Name
+      value: spawner
+      objectReference: {fileID: 0}
     - target: {fileID: 7093012279912260077, guid: 108311e93c365aa4e8e1a0000df6f78c,
         type: 3}
       propertyPath: obj2
@@ -229,7 +229,7 @@ PrefabInstance:
     - target: {fileID: 7093012279912260077, guid: 108311e93c365aa4e8e1a0000df6f78c,
         type: 3}
       propertyPath: obj3
-      value: -1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7093012279912260077, guid: 108311e93c365aa4e8e1a0000df6f78c,
         type: 3}
@@ -262,10 +262,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8014202180823940310}
     m_Modifications:
-    - target: {fileID: 100026, guid: 65fc49e3e28bbd744a3377a19d3216d7, type: 3}
-      propertyPath: m_Name
-      value: ground_factory
-      objectReference: {fileID: 0}
     - target: {fileID: 400026, guid: 65fc49e3e28bbd744a3377a19d3216d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.028124
@@ -321,6 +317,10 @@ PrefabInstance:
     - target: {fileID: 400026, guid: 65fc49e3e28bbd744a3377a19d3216d7, type: 3}
       propertyPath: m_LocalScale.z
       value: 3.3698
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: 65fc49e3e28bbd744a3377a19d3216d7, type: 3}
+      propertyPath: m_Name
+      value: ground_factory
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 65fc49e3e28bbd744a3377a19d3216d7, type: 3}
       propertyPath: m_Controller

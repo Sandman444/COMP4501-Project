@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     public Rigidbody testCube;
 
     //Unit type enums
-    public enum UnitType {LAV, ground_fac, Commander, bomber};
+    public enum UnitType {LAV, ground_fac, Commander, bomber, gunship};
     public enum User {Player, Computer};  //0 is player, 1 is comp
 
     private GameObject units;
@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour
 	public GameObject ground_commander;
 	public GameObject air_bomber;
 	public GameObject ground_spawner;
+	public GameObject air_gunship;
 
     // Start is called before the first frame update
     void Start()
@@ -111,7 +112,11 @@ public class GameController : MonoBehaviour
 			unit = Instantiate(ground_spawner, position, Quaternion.identity) as GameObject;
 			unit.transform.SetParent(units.transform);
 		}
-        else
+		else if (type == (int)UnitType.gunship) {
+			unit = Instantiate(air_gunship, position, Quaternion.identity) as GameObject;
+			unit.transform.SetParent(units.transform);
+		}
+		else
         {
             unit = Instantiate(ground_LAV, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
             Debug.Log("Error creating a unit");
