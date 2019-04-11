@@ -29,14 +29,7 @@ public class CameraController : MonoBehaviour
         {
             pos.x -= scrollSpeed * Time.deltaTime * factor;
         }
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
-        {
-            GetComponent<Camera>().orthographicSize --;
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
-        {
-            GetComponent<Camera>().orthographicSize++;
-        }
+       
         transform.position = pos;
     }
 }
